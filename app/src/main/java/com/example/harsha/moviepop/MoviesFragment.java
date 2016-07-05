@@ -1,6 +1,6 @@
 package com.example.harsha.moviepop;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -8,7 +8,8 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.widget.GridView;
+import android.widget.ScrollView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,7 +21,9 @@ import java.util.List;
 
 //Grid of movie images with scrollview, each of which can be clicked on for further detail
 public class MoviesFragment extends Fragment {
+
     ArrayAdapter<String> movieData;
+
     public MoviesFragment() {
     }
 
@@ -47,17 +50,17 @@ public class MoviesFragment extends Fragment {
         };
         List<String> mockDataList = new ArrayList<String>(Arrays.asList(mockData));
 
-        ArrayAdapter<String> movieData = new ArrayAdapter<String>(
+        movieData = new ArrayAdapter<String>(
                 getActivity(),
-                R.layout.fragment_movies,
-                R.id.container,
+                R.layout.list_item_movies,
+                R.id.list_item_movies_textview,
                 mockDataList
         );
 
-        View rootView = inflater.inflate(R.layout.fragment_movies, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
-        ListView listView = (ListView) rootView.findViewById(R.id.fragment_movies);
-        listView.setAdapter(movieData);
+        GridView gridView = (GridView) rootView.findViewById(R.id.fragment_movies);
+        gridView.setAdapter(movieData);
 
         return rootView;
 
