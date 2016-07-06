@@ -17,7 +17,7 @@ public class MoviesAdapter extends ArrayAdapter<Movies> {
 
     /**
      * Custom constructor to inflate the layout file and populate with a List of data
-     * @param context        The current context. Used to inflate the layout file.
+     * @param context The current context. Used to inflate the layout file.
      * @param movies A List of Movies objects to display in a list
      */
     public MoviesAdapter(Activity context, List<Movies> movies) {
