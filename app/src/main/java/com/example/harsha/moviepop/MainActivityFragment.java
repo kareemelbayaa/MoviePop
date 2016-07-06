@@ -20,11 +20,18 @@ import java.util.List;
  */
 
 //Grid of movie images with scrollview, each of which can be clicked on for further detail
-public class MoviesFragment extends Fragment {
+public class MainActivityFragment extends Fragment {
 
-    ArrayAdapter<String> movieData;
+    MoviesAdapter moviesAdapter;
 
-    public MoviesFragment() {
+    //dummy data to be modified later
+    Movies[] mockData = {
+            new Movies("The Gift","2015",R.drawable.cupcake),
+            new Movies("NightCrawler","2014",R.drawable.eclair),
+            new Movies("Bowfinger","2003",R.drawable.icecream)
+    };
+
+    public MainActivityFragment() {
     }
 
     @Override
@@ -43,12 +50,9 @@ public class MoviesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        //dummy data to be modified later
-        String[] mockData = {
-                "Star Wars", "Monty Python", "The Gift",
-                "Bowfinger", "NightCrawler", "Donnie Darko"
-        };
-        List<String> mockDataList = new ArrayList<String>(Arrays.asList(mockData));
+
+
+        /*List<String> mockDataList = new ArrayList<String>(Arrays.asList(mockData));
 
         movieData = new ArrayAdapter<String>(
                 getActivity(),
@@ -56,11 +60,13 @@ public class MoviesFragment extends Fragment {
                 R.id.list_item_movies_textview,
                 mockDataList
         );
+        */
 
+        moviesAdapter = new MoviesAdapter(getActivity(), Arrays.asList(mockData));
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
         GridView gridView = (GridView) rootView.findViewById(R.id.fragment_movies);
-        gridView.setAdapter(movieData);
+        gridView.setAdapter(moviesAdapter);
 
         return rootView;
 

@@ -1,6 +1,5 @@
 package com.example.harsha.moviepop;
 
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -12,7 +11,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new MoviesFragment())
+                    .add(R.id.container, new MainActivityFragment())
                     .commit();
         }
     }
