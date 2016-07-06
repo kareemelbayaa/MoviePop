@@ -1,5 +1,6 @@
 package com.example.harsha.moviepop;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -34,8 +35,9 @@ public class MainActivity extends AppCompatActivity {
         // Says what was clicked
         int id = item.getItemId();
 
-        //If settings is clicked
+        //If settings is clicked open SettingsActivity
         if (id == R.id.action_settings) {
+            startActivity(new Intent(this, SettingsActivity.class));
             return true;
         }
 
